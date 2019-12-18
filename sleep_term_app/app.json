@@ -24,7 +24,10 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTab let": true
+    },
+    "android":{
+      "package": "com.joon.sleep_term_app"
     }
   }
 }
