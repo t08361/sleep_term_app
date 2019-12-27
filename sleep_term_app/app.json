@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "sleep_term_app",
+    "name": "졸릴 때 잘수있는 행복",
     "slug": "sleep_term_app",
     "privacy": "public",
     "sdkVersion": "36.0.0",
@@ -9,13 +9,13 @@
       "android",
       "web"
     ],
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#000000"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -23,8 +23,8 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "ios": {
-      "supportsTab let": true
+    "ios":{
+      
     },
     "android":{
       "package": "com.joon.sleep_term_app"
