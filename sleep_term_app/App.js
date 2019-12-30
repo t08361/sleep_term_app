@@ -52,15 +52,15 @@ export default class App extends React.Component {
           </View>
         <View style={styles.adbanner}>
           <AdMobBanner
-            bannerSize="fullBanner"
-            adUnitID="ca-app-pub-3940256099942544/6300978111" // Test ID, Replace with your-admob-unit-id
+            bannerSize="banner"
+            adUnitID="ca-app-pub-8242453299394754/9411687449" // Test ID, Replace with your-admob-unit-id
             setTestDeviceIDAsync="SM-N950N"
             //servePersonalizedAds // true or false
             onDidFailToReceiveAdWithError={this.bannerError}
           />
           <PublisherBanner
             bannerSize="mediumRectangle"
-            adUnitID="ca-app-pub-3940256099942544/6300978111" // Test ID, Replace with your-admob-unit-id
+            adUnitID="ca-app-pub-8242453299394754/9411687449" // Test ID, Replace with your-admob-unit-id
             setTestDeviceIDAsync="SM-N950N"
             onDidFailToReceiveAdWithError={this.bannerError}
             //onAdMobDispatchAppEvent={this.adMobEvent}
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
     },
     header: {
-      marginTop:100,
+      marginTop:40,
       flex: 0.7,
       backgroundColor: "#263f44",
       borderRadius: 7,
@@ -92,10 +92,10 @@ const styles = StyleSheet.create({
       fontWeight:"bold",
       color: '#ff896b',
       alignItems: 'center',
-      fontSize: 50,
+      fontSize: 43,
     justifyContent: 'center',
       padding: 6,
-    marginBottom:30
+    marginBottom:22
     },
     contents: {
       flex: 0.6,

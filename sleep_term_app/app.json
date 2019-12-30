@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "졸릴 때 잘수있는 행복",
+    "name": "수면 주기",
     "slug": "sleep_term_app",
     "privacy": "public",
     "sdkVersion": "36.0.0",
@@ -23,10 +23,8 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "ios":{
-      
-    },
-    "android":{
+    "ios": {},
+    "android": {
       "package": "com.joon.sleep_term_app"
     }
   }

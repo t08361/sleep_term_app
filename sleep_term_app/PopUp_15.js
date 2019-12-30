@@ -12,7 +12,7 @@ export default function PopUp_15() {
             <View style={styles.ad}>
         <AdMobBanner
             bannerSize="banner"
-            adUnitID="ca-app-pub-3940256099942544/6300978111" // Test ID, Replace with your-admob-unit-id
+            adUnitID="ca-app-pub-8242453299394754/9411687449" // Test ID, Replace with your-admob-unit-id
             setTestDeviceIDAsync="SM-N950N"
             //servePersonalizedAds // true or false
             onDidFailToReceiveAdWithError={this.bannerError}

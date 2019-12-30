@@ -64,11 +64,14 @@ export default class GetDate_15 extends Component {
         </Text>
         </View>
         <View style={styles.time}>
-            <Text style={styles.time_1, styles.eachTime}>
-         -{this.state.date_1}-
-            </Text>
+        <Text style={styles.time_2, styles.text}>
+        "기상 하고자 하는 시간에 알람맞혀주세요."
+        </Text>
+        <Text style={styles.time_1, styles.eachTime}>
+          -{this.state.date_1}-
+        </Text>  
         <Text style={styles.time_2, styles.eachTime}>
-        -{this.state.date_2}-
+          -{this.state.date_2}-
         </Text>
         <Text style={styles.time_3, styles.eachTime}>
           -{this.state.date_3}-
@@ -99,9 +102,15 @@ const styles = StyleSheet.create({
   },
   eachTime: {
     color:"white",
-    fontSize: 40,
-    padding: 7,
+    fontSize: 30,
+    padding: 5,
     margin: 10,
     fontWeight:"bold"
+  },
+  text: {
+    color: "red",
+    fontSize: 13,
+    padding: 2,
+    
   }
 })
