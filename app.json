@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "잠자자",
+    "slug": "sleep_term_app",
+    "privacy": "public",
+    "sdkVersion": "36.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "version": "1.0.2",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#000000"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios":{
+      "bundleIdentifier": "com.jun.sleep",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.joon.sleep_term_app"
+    }
+  }
+}
+
+
