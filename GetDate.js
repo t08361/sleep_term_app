@@ -110,22 +110,22 @@ export default class GetDate extends Component {
             {this.state.date_0}
         </Text>
         <Text style={styles.time_3, styles.eachTime}>
-          *   {this.state.date_1}    1시간30분 후
+          *   {this.state.date_1}    1h30
         </Text>
         <Text style={styles.time_3, styles.eachTime}>
-          *   {this.state.date_2}    3시간00분 후
+          *   {this.state.date_2}    3h00
         </Text>
         <Text style={styles.time_3, styles.eachTime}>
-          *   {this.state.date_3}    4시간30분 후
+          *   {this.state.date_3}    4h30
         </Text>
         <Text style={styles.time_4, styles.eachTime}>
-          *   {this.state.date_4}    6시간00분 후
+          *   {this.state.date_4}    6h00
         </Text>
         <Text style={styles.time_5, styles.eachTime}>
-          *   {this.state.date_5}    7시간30분 후
+          *   {this.state.date_5}    7h30
           </Text>
           <Text style={styles.time_6, styles.eachTime}>
-          *   {this.state.date_6}    9시간00분 후
+          *   {this.state.date_6}    9h00
           </Text>
           <Text></Text>
           <TouchableOpacity onPress={() => Linking.openURL('http://apps.samsung.com/appquery/appDetail.as?appId=com.sec.android.app.clockpackage')}>

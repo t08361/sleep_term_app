@@ -1,7 +1,12 @@
 import React from 'react'
 import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 
-export default function Button_time() {
+
+
+
+
+
+/*export default function Button_time() {
     return ( 
     <View>
     <TouchableOpacity>

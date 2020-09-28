@@ -2,9 +2,9 @@ import React,{Component} from 'react'
 import {Alert, Modal, StyleSheet, Text, View, Button, Image,TouchableOpacity, Container, ImageBackground, TouchableHighlight} from 'react-native';
 import  {AdMobBanner,AdMobInterstitial,PublisherBanner,AdMobRewarded}  from "expo-ads-admob";
 import PopUp from './PopUp'
+import Accelerate from './accelerator'
 import {Linking} from 'expo'
-
-
+import accelerate from './accelerator';
 
 export default class App extends React.Component {
   state = {
@@ -22,18 +22,13 @@ export default class App extends React.Component {
     /*m.add(1, 'day').calendar()
     var tomorrow = m.format('YYYY년MM월DD일 hh시mm분')*/
     return (
-      <View  style={styles.container}>
-        <View style={styles.header}>
-          <Text style={styles.header_text}>수면 주기</Text>
-        </View> 
+      <View style={styles.container}>
+         <ImageBackground 
+            	style={{ width: "100%", height: "100%" }}  //View를 꽉채우도록
+                source={require("./assets/background.png")}  //이미지경로
+                resizeMode="cover" // 'cover', 'contain', 'stretch', 'repeat', 'center' 중 선택 
+                >
         <View style={styles.reward}>
-      <PublisherBanner
-        //bannerSize="mediumRectangle"
-        //adUnitID="ca-app-pub-8242453299394754/9411687449" // Test ID, Replace with your-admob-unit-id
-        //setTestDeviceIDAsync="SM-N950N"
-        //onDidFailToReceiveAdWithError={this.bannerError}
-        //onAdMobDispatchAppEvent={this.adMobEvent}
-      />
         </View>
       
         <Modal
@@ -50,7 +45,7 @@ export default class App extends React.Component {
           }}>
           <Image
             style={styles.exit}
-            source={require('./exit.png')}
+            source={require('./assets/exit.png')}
           />
           </TouchableOpacity>
           <PopUp style={styles.pop} />
@@ -60,23 +55,36 @@ export default class App extends React.Component {
           <View style={styles.button}>
           <View style={styles.button_time}>
             <TouchableOpacity onPress={() => { this.setModalVisible(true) }}>
-              <Text style={styles.button_time1}>수면 시간</Text>
+              <Text style={styles.button_time1}>
+                수면주기
+              </Text>
+            </TouchableOpacity>
+            </View>
+          <View style={styles.button_time}>
+            <TouchableOpacity onPress={() => Linking.openURL('https://t08361.github.io/mongdang')}>
+              <Text style={styles.button_time1}>
+                몽 당
+              </Text>
             </TouchableOpacity>
           </View>
+          <View style={styles.button_time}>
+            <TouchableOpacity onPress={() => Linking.openURL('mailto:jofficial1@naver.com')}>
+              <Text style={styles.button_time1}>
+                피 드 백
+              </Text>
+            </TouchableOpacity>
+            </View>
+            <View style={styles.accelerate}>
+              <Accelerate />
+            </View>
         </View>
           <View style={styles.empty}>
           <TouchableOpacity style={styles.reward_btn}> 
             <Text style={styles.reward_text}></Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => Linking.openURL('mailto:jofficial1@naver.com')}>
-            <Text style={styles.alarm}>
-              -----대화로 풀어요-----
-            </Text>
-            <Text></Text>
-          </TouchableOpacity>
         </View>
         <View style={styles.adbanner}>
-          <AdMobBanner
+          <AdMobBanner style={styles.adbanner1}
             bannerSize="banner"
             adUnitID="ca-app-pub-8242453299394754/9411687449" // Test ID, Replace with your-admob-unit-id
             setTestDeviceIDAsync="SM-N950N"
@@ -84,13 +92,18 @@ export default class App extends React.Component {
             onDidFailToReceiveAdWithError={this.bannerError}
           />
         </View>
+        <View style={styles.last}><Text style={styles.lastinfo}>
+         이용 약관ㅣ개인정보처리방침ㅣ법적 정보    .MongDang   Corp.</Text>
         </View>
+            </ImageBackground>
+      </View>
+
     );
   }
 }
-
-         /*<View style={styles.last}><Text style={styles.lastinfo}>
-         이용 약관 ㅣ 개인정보처리방침 ㅣ 법적 정보   .JYJ  Corp.</Text>
+        /*
+        <View style={styles.header}>
+          <Text style={styles.header_text}></Text>
         </View>*/
 const styles = StyleSheet.create({
   container: {
@@ -124,40 +137,60 @@ const styles = StyleSheet.create({
     fontSize:20
   },
     button: {
-      backgroundColor:'#263f44',
       flex: 0.35,
-    },
+      flexDirection: 'row',
+  },
+  button_time: {
+    padding:5
+  },
   button_time1:{
-    padding: 30,
-    fontSize:33,
+    paddingHorizontal: 15,
+    paddingVertical: 45,
+    shadowColor: "#000",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 10,
+    },
+    shadowOpacity: 0.53,
+    shadowRadius: 13.97,
+    elevation: 21,
+    fontSize: 22,
     color: '#ff896b',
     backgroundColor: "#015668",
-    borderRadius: 33,
+    borderRadius: 12,
     position: "relative",
-    marginTop:10
+    marginTop: 200,
+            marginLeft: 0,
+            marginRight: 0
   },
     last: {
-      backgroundColor: 'black',
-      borderRadius: 10,
+      borderRadius: 0,
       padding: 5,
       marginBottom: 5,
+      alignItems: "center",
+      position: "absolute",
+      bottom:0
   },
   empty: {
       flex:0.3
     },
     adbanner: {
-      backgroundColor: "#263f44",
       alignItems: "center",
-      position: "absolute",
-      bottom:0
+      bottom:-290
       
-    },
+  },
+  adbanner1: {
+    alignItems: "center",
+    bottom:45
+    
+  },
     lastinfo: {
       color: 'white',
       marginTop:2
   },
   pop: {
-     backgroundColor:"black" 
+    backgroundColor:"black" 
     },
     exit: {
       margin: 10,
@@ -173,10 +206,17 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 20,
     alignItems:'center'
-    }
+  },
+  accelerate: {
+    alignItems: 'center',
+    position: "absolute",
+  }
   });
   
-  /*<PublisherBanner
+  /*
+  backgroundColor:'#263f44',
+
+  <PublisherBanner
             bannerSize="fullBanner"
             adUnitID="ca-app-pub-3940256099942544/6300978111" // Test ID, Replace with your-admob-unit-id
             setTestDeviceIDAsync="SM-N950N"
@@ -220,3 +260,12 @@ const styles = StyleSheet.create({
    하루 4회~6회의 주기로 수면을 취한다.
 
 -o- 신체온도를 낮춰 숙면하기 좋게 한다. `}*/
+/*
+====배너광고===
+<PublisherBanner
+        //bannerSize="mediumRectangle"
+        //adUnitID="ca-app-pub-8242453299394754/9411687449" // Test ID, Replace with your-admob-unit-id
+        //setTestDeviceIDAsync="SM-N950N"
+        //onDidFailToReceiveAdWithError={this.bannerError}
+        //onAdMobDispatchAppEvent={this.adMobEvent}
+      />*/
