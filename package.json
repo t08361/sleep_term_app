@@ -9,13 +9,16 @@
   },
   "dependencies": {
     "@react-native-community/cli": "^3.0.4",
-    "expo": "^36.0.0",
+    "expo": "^36.0.2",
     "expo-ads-admob": "~8.0.0",
+    "expo-cli": "^3.27.13",
     "moment": "^2.29.0",
     "react": "16.9.0",
     "react-dom": "16.9.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.1.tar.gz",
-    "react-native-web": "~0.11.7"
+    "react-native-admob": "^2.0.0-beta.6",
+    "react-native-web": "~0.11.7",
+    "yarn": "^1.22.10"
   },
   "devDependencies": {
     "babel-preset-expo": "~8.0.0"

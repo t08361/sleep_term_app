@@ -1,21 +1,34 @@
 import React,{Component} from 'react'
 import {Alert, Modal, StyleSheet, Text, View, Button, Image,TouchableOpacity, Container, ImageBackground, TouchableHighlight} from 'react-native';
-import  {AdMobBanner,AdMobInterstitial,PublisherBanner,AdMobRewarded}  from "expo-ads-admob";
+import  {AdMobBanner,PublisherBanner,AdMobInterstitial,
+  AdMobRewarded,}  from "expo-ads-admob";
 import PopUp from './PopUp'
 import Accelerate from './accelerator'
 import {Linking} from 'expo'
 import accelerate from './accelerator';
 
 export default class App extends React.Component {
+
+  setAd=(visible)=> {
+    if (visible) {
+      this.adInterstitial();
+    }
+  }
+  adInterstitial = async () => {
+    await AdMobRewarded.setAdUnitID('ca-app-pub-8242453299394754/1934814495'); // Test ID, Replace with your-admob-unit-id
+    await AdMobRewarded.requestAdAsync();
+    await AdMobRewarded.showAdAsync();
+  }
+  //위에 까지가 동영상광고 관련 
   state = {
     modalVisible: false,
-  };
+  }
 
   setModalVisible(visible) {
     this.setState({modalVisible: visible});
   }
   bannerError() {
-    Alert.alert("We have some problem")
+    Alert.alert("오류가 생겼으니 앱을 껐다켜주세요.")
   }
   
   render() {
@@ -51,31 +64,36 @@ export default class App extends React.Component {
           <PopUp style={styles.pop} />
           </View>
           </Modal>
-        
-          <View style={styles.button}>
+          
+          <View style={styles.button} /*버튼들의 모임*/ >
           <View style={styles.button_time}>
-            <TouchableOpacity onPress={() => { this.setModalVisible(true) }}>
+            <TouchableOpacity style={styles.button1} onPress={() => { this.setModalVisible(true) }}>
               <Text style={styles.button_time1}>
                 수면주기
               </Text>
             </TouchableOpacity>
             </View>
+        
           <View style={styles.button_time}>
-            <TouchableOpacity onPress={() => Linking.openURL('https://t08361.github.io/mongdang')}>
-              <Text style={styles.button_time1}>
-                몽 당
-              </Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.button_time}>
-            <TouchableOpacity onPress={() => Linking.openURL('mailto:jofficial1@naver.com')}>
+            <TouchableOpacity style={styles.button1} onPress={() => Linking.openURL('mailto:jofficial1@naver.com')}>
               <Text style={styles.button_time1}>
                 피 드 백
               </Text>
             </TouchableOpacity>
             </View>
-            <View style={styles.accelerate}>
-              <Accelerate />
+            <View style={styles.button_time}>
+            <TouchableOpacity style={styles.button1} onPress={() => Linking.openURL('https://t08361.github.io/mongdang')}>
+              <Text style={styles.button_time1}>
+                몽 당
+              </Text>
+            </TouchableOpacity>
+          </View>
+            <View style={styles.button_time}>
+            <TouchableOpacity style={styles.button1} onPress={() => { this.setAd(true) }}>
+              <Text style={styles.button_time1}>
+                광고
+              </Text>
+            </TouchableOpacity>
             </View>
         </View>
           <View style={styles.empty}>
@@ -84,8 +102,27 @@ export default class App extends React.Component {
           </TouchableOpacity>
         </View>
         <View style={styles.adbanner}>
+        </View>
+          <View style={styles.last}>
+            <Text style={styles.lastinfo}></Text>
+        </View>
+            </ImageBackground>
+      </View>
+
+    );
+  }
+}
+        /*
+        <View style={styles.button_time}>
+            <TouchableOpacity style={styles.button1} onPress={() => Linking.openURL('https://t08361.github.io/mongdang')}>
+              <Text style={styles.button_time1}>
+                몽 당
+              </Text>
+            </TouchableOpacity>
+          </View>
+        <View style={styles.adbanner}>
           <AdMobBanner style={styles.adbanner1}
-            bannerSize="banner"
+            bannerSize="smartBannerLandscape"
             adUnitID="ca-app-pub-8242453299394754/9411687449" // Test ID, Replace with your-admob-unit-id
             setTestDeviceIDAsync="SM-N950N"
             //servePersonalizedAds // true or false
@@ -95,26 +132,20 @@ export default class App extends React.Component {
         <View style={styles.last}><Text style={styles.lastinfo}>
          이용 약관ㅣ개인정보처리방침ㅣ법적 정보    .MongDang   Corp.</Text>
         </View>
-            </ImageBackground>
-      </View>
-
-    );
-  }
-}
-        /*
         <View style={styles.header}>
           <Text style={styles.header_text}></Text>
-        </View>*/
+        </View>
+        <View style={styles.accelerate}>
+              <Accelerate />
+            </View>*/
 const styles = StyleSheet.create({
   container: {
-      flex: 1,
     backgroundColor: "#263f44",
       alignItems: 'center',
       justifyContent: 'center',
     },
     header: {
       marginTop:40,
-      flex: 0.4,
       backgroundColor: "#263f44",
       borderRadius: 7,
       padding: 5,
@@ -128,6 +159,9 @@ const styles = StyleSheet.create({
       padding: 6,
     marginBottom:5  
   },
+  reward: {
+      flex:0.1
+    },
   reward_btn: {
     position: "relative",
     marginBottom: 40,
@@ -137,32 +171,47 @@ const styles = StyleSheet.create({
     fontSize:20
   },
     button: {
-      flex: 0.35,
-      flexDirection: 'row',
+      flex: 1,
+      
   },
+  button1: {
+    marginTop: 1,
+    marginLeft: 12,
+    marginRight: 14,
+    paddingLeft: 35,
+    paddingVertical:1,
+    
+    },
   button_time: {
-    padding:5
+    paddingVertical: 13,
+    paddingHorizontal: 15,
+    
   },
   button_time1:{
-    paddingHorizontal: 15,
-    paddingVertical: 45,
-    shadowColor: "#000",
+    paddingHorizontal: 18,
+    paddingVertical: 10,
+    
+    fontSize: 21,
+    fontWeight:'bold',
+    color: '#132743',
+    backgroundColor: "#e8e8e8",//#015668
+    borderBottomLeftRadius: 30,
+	  borderBottomRightRadius: 30,
+	  borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+    position: "relative",
+    marginTop: 7,
+    marginLeft: 12,
+    marginRight: 140,
+    alignContent: 'center',
     shadowColor: "#000",
     shadowOffset: {
-      width: 0,
-      height: 10,
+	    width: 0,
+	    height: 8,
     },
-    shadowOpacity: 0.53,
-    shadowRadius: 13.97,
-    elevation: 21,
-    fontSize: 22,
-    color: '#ff896b',
-    backgroundColor: "#015668",
-    borderRadius: 12,
-    position: "relative",
-    marginTop: 200,
-            marginLeft: 0,
-            marginRight: 0
+    shadowOpacity: 0.46,
+    shadowRadius: 11.14,
+    elevation: 17,
   },
     last: {
       borderRadius: 0,
@@ -170,15 +219,16 @@ const styles = StyleSheet.create({
       marginBottom: 5,
       alignItems: "center",
       position: "absolute",
-      bottom:0
+      bottom: 0,
+      flex:1
   },
   empty: {
-      flex:0.3
+      
     },
     adbanner: {
       alignItems: "center",
-      bottom:-290
-      
+      bottom:0,
+      flex:0.1
   },
   adbanner1: {
     alignItems: "center",

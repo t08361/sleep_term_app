@@ -151,8 +151,8 @@ const styles = StyleSheet.create({
   eachTime: {
     color:"pink",
     fontSize: 23,
-    padding: 5,
-    margin: 10,
+    padding: 1,
+    margin: 6,
     fontWeight:"bold"
   },
   tomorrow: {

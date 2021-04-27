@@ -26,14 +26,17 @@
     "ios":{
       "supportsTablet": true,
       "bundleIdentifier": "com.jun.sleep",
-      "buildNumber": "1.0.0"
+      "buildNumber": "1.0.0",
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-3940256099942544~1458002511" }
     },
     "android": {
       "package": "com.joon.sleep_term_app",
-      "permissions": [ "MOTION"],
-      "versionCode":3
+      "versionCode":3,
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-8242453299394754/6056525351"
+      }
     }
   }
 }
-
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+/*import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Accelerometer } from 'expo-sensors';
 
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
         
     }
 
-})
+})*/
 /*
 import React, { Component } from 'react';
 import { StyleSheet, View, Alert, Text, TouchableOpacity } from 'react-native';
